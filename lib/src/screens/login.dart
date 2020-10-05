@@ -1,5 +1,3 @@
-import 'package:farmers_market/src/screens/base.dart';
-import 'package:farmers_market/src/styles/colors.dart';
 import 'package:farmers_market/src/styles/textfields.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -41,8 +39,8 @@ class Login extends StatelessWidget {
       ),
       Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: TextFieldStyles.textBoxHorizontal(),
-            vertical: TextFieldStyles.textBoxVertical()),
+            horizontal: TextFieldStyles.textBoxHorizontal,
+            vertical: TextFieldStyles.textBoxVertical),
         child: password(),
       ),
     ]);
@@ -53,12 +51,12 @@ class Login extends StatelessWidget {
       return CupertinoTextField(
           padding: EdgeInsets.all(12.0),
           placeholder: 'Email',
-          textAlign: TextAlign.center,
-          placeholderStyle: TextFieldStyles.placeholder(),
-          style: TextFieldStyles.text(),
-          cursorColor: TextFieldStyles.cursorColor(),
+          textAlign: TextFieldStyles.textAlign,
+          placeholderStyle: TextFieldStyles.placeholder,
+          style: TextFieldStyles.text,
+          cursorColor: TextFieldStyles.cursorColor,
           prefix: TextFieldStyles.iconPrefix(CupertinoIcons.mail_solid),
-          decoration: TextFieldStyles.cupertinoDecoration());
+          decoration: TextFieldStyles.cupertinoDecoration);
     }
     return TextField();
   }
