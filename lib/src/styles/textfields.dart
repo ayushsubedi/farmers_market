@@ -33,4 +33,24 @@ abstract class TextFieldStyles {
             Border.all(color: AppColors.straw, width: BaseStyles.borderWidth),
         borderRadius: BorderRadius.circular(BaseStyles.borderRadius));
   }
+
+  static InputDecoration materialDecoration(String hintText, IconData icon) {
+    return InputDecoration(
+      contentPadding: EdgeInsets.all(8.0),
+      hintText: hintText,
+      hintStyle: TextFieldStyles.placeholder,
+      border: InputBorder.none,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(BaseStyles.borderRadius),
+        borderSide:
+            BorderSide(color: AppColors.straw, width: BaseStyles.borderWidth),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(BaseStyles.borderRadius),
+        borderSide:
+            BorderSide(color: AppColors.straw, width: BaseStyles.borderWidth),
+      ),
+      prefixIcon: iconPrefix(icon),
+    );
+  }
 }
