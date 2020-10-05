@@ -1,7 +1,9 @@
-import 'package:farmers_market/src/styles/textfields.dart';
+import 'package:farmers_market/src/widgets/textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
+
+import 'package:flutter/services.dart';
 
 class Login extends StatelessWidget {
   const Login({Key key}) : super(key: key);
@@ -29,42 +31,29 @@ class Login extends StatelessWidget {
                 fit: BoxFit.fill)),
       ),
       Container(
-          height: 200,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/logo.png')))),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: email(),
+        height: 200,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/logo.png'),
+          ),
+        ),
       ),
-      Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: TextFieldStyles.textBoxHorizontal,
-            vertical: TextFieldStyles.textBoxVertical),
-        child: password(),
+      AppTextField(
+        isIOS: Platform.isIOS,
+        cupertinoIcon: CupertinoIcons.mail_solid,
+        hintText: 'Email',
+        materialIcon: Icons.email,
+        textInputType: TextInputType.emailAddress,
+      ),
+      AppTextField(
+        isIOS: Platform.isIOS,
+        // todo: change later
+        cupertinoIcon: CupertinoIcons.mail_solid,
+        hintText: 'Password',
+        materialIcon: Icons.lock,
+        textInputType: TextInputType.text,
+        obscureText: true,
       ),
     ]);
-  }
-
-  Widget email() {
-    if (Platform.isIOS) {
-      return CupertinoTextField(
-          padding: EdgeInsets.all(12.0),
-          placeholder: 'Email',
-          textAlign: TextFieldStyles.textAlign,
-          placeholderStyle: TextFieldStyles.placeholder,
-          style: TextFieldStyles.text,
-          cursorColor: TextFieldStyles.cursorColor,
-          prefix: TextFieldStyles.iconPrefix(CupertinoIcons.mail_solid),
-          decoration: TextFieldStyles.cupertinoDecoration);
-    }
-    return TextField();
-  }
-
-  Widget password() {
-    if (Platform.isIOS) {
-      return CupertinoTextField();
-    }
-    return TextField();
   }
 }
