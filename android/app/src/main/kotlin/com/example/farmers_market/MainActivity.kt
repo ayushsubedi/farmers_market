@@ -1,4 +1,4 @@
-package com.example.farmers_market
+package ml.subedi.farmers_market
 
 import io.flutter.embedding.android.FlutterActivity
 
